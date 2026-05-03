@@ -14,10 +14,9 @@ void display() {
     glTranslatef(tx, 0, 0);
 
     glScalef(scale, scale, 1.0f);
-
-    glColor3f(0.0f, 1.0f, 0.5f);
-
+    
     glBegin(GL_QUADS);
+        glColor3f(0.0f, 1.0f, 0.5f);
         glVertex2f(-0.2f, -0.1f);
         glVertex2f( 0.2f, -0.1f);
         glVertex2f( 0.2f,  0.1f);
@@ -47,6 +46,8 @@ int main(int argc, char** argv) {
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
 
     glutInitWindowSize(800, 600);
+
+    glutInitWindowPosition(0, 0);
 
     glutCreateWindow("Rectangle Automation");
 
