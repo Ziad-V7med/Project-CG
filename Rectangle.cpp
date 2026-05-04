@@ -1,10 +1,10 @@
 #include <GL/glut.h>
 
-float tx = 0.0f;     
-float scale = 1.0f; 
-float shx = 0.0f;
+float tx = 0.0f;
+float scale = 1.0f;
+float shy = 0.0f;
 
-void display () {
+void display() {
 
     glClear(GL_COLOR_BUFFER_BIT);
     glClearColor(0.0, 0.0, 0.0, 1.0);
@@ -15,7 +15,7 @@ void display () {
 
     float shearMatrix[16] = {
         1.0f, 0.0f, 0.0f, 0.0f,
-        shx,  1.0f, 0.0f, 0.0f,
+        shy,  1.0f, 0.0f, 0.0f,
         0.0f, 0.0f, 1.0f, 0.0f,
         0.0f, 0.0f, 0.0f, 1.0f
     };
@@ -23,27 +23,27 @@ void display () {
     glMultMatrixf(shearMatrix);
 
     glScalef(scale, scale, 1.0f);
-    
+
     glBegin(GL_QUADS);
-        glColor3f(0.0f, 1.0f, 0.5f);
-        glVertex2f(-0.2f, -0.1f);
-        glVertex2f( 0.2f, -0.1f);
-        glVertex2f( 0.2f,  0.1f);
-        glVertex2f(-0.2f,  0.1f);
+    glColor3f(0.0f, 1.0f, 0.5f);
+    glVertex2f(-0.2f, -0.1f);
+    glVertex2f(0.2f, -0.1f);
+    glVertex2f(0.2f, 0.1f);
+    glVertex2f(-0.2f, 0.1f);
     glEnd();
 
     glFlush();
 }
 
-void time (int value) {
+void time(int value) {
     tx += 0.01f;
-    if (tx > 1.2f) tx = -1.2f; 
+    if (tx > 1.2f) tx = -1.2f;
 
     scale += 0.005f;
-    if (scale > 2.0f) scale = 0.5f; 
+    if (scale > 2.0f) scale = 0.5f;
 
-    shx += 0.01f;
-    if (shx > 1.0f) shx = -1.0f; 
+    shy += 0.01f;
+    if (shy > 1.0f) shy = -1.0f;
 
     glutPostRedisplay();
     glutTimerFunc(16, time, 0);
@@ -66,5 +66,5 @@ int main(int argc, char** argv) {
     glutTimerFunc(0, time, 0);
 
     glutMainLoop();
-    
+
 }
