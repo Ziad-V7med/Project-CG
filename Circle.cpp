@@ -18,8 +18,8 @@ void circleplotpoints(int xcenter, int ycenter, int x, int y) {
 }
 
 bool inScreen = true;
-float r=0; bool r1 = true;
-float g=0; bool g1 = false;
+float r = 0; bool r1 = true;
+float g = 0; bool g1 = false;
 float b = 0; bool b1 = false;
 
 void time(int) {
@@ -51,8 +51,9 @@ void time(int) {
         b = 0.5;
         r1 = true;
     }
-    if(r1) r+=0.1;
-    if(g1) g+=0.1;
+
+    if (r1) r += 0.1;
+    if (g1) g += 0.1;
     if (b1) b += 0.1;
     
     glutPostRedisplay();
@@ -62,8 +63,8 @@ void time(int) {
 
 void display() {
 
-    glClearColor(0.4, 0.4, 0.4, 1);
     glClear(GL_COLOR_BUFFER_BIT);
+    glClearColor(0.4, 0.4, 0.4, 1);
 
     glPointSize(5);
 
